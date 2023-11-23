@@ -9,13 +9,13 @@
 import React, {useEffect} from 'react';
 import {SafeAreaView, StatusBar} from 'react-native';
 import HomeScreen from './src/screens/HomeScreen';
-import Amplify, {Auth, API, graphqlOperation} from 'aws-amplify';
-// import config from './aws-exports';
+import {Auth, API, graphqlOperation, Amplify} from 'aws-amplify';
+import config from './aws-exports';
 import {withAuthenticator} from 'aws-amplify-react-native';
 import {getCarId} from './src/graphql/queries';
 import {createCar} from './src/graphql/mutations';
 
-// Amplify.configure(config);
+Amplify.configure(config);
 
 const App = () => {
   useEffect(() => {

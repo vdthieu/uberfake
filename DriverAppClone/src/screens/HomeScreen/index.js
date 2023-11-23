@@ -25,9 +25,11 @@ const HomeScreen = () => {
   const fetchCar = async () => {
     try {
       const userData = await Auth.currentAuthenticatedUser();
+      console.log(userData)
       const carData = await API.graphql(
         graphqlOperation(getCar, {id: userData.attributes.sub}),
       );
+      console.log("carData", carData);
       setCar(carData.data.getCar);
     } catch (e) {
       console.error(e);
